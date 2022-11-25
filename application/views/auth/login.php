@@ -17,6 +17,8 @@
     <link href="<?= base_url('assets/') ?>assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="<?= base_url('assets/') ?>assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
 </head>
 
 <body class="">
@@ -41,14 +43,20 @@
                                     <p class="mb-0">Enter your email and password to sign in</p>
                                 </div>
                                 <div class="card-body">
+                                    <?php $this->view('message'); ?>
+
                                     <form role="form" method="POST" action="<?= base_url('login') ?>">
                                         <label>Email</label>
                                         <div class="mb-3">
-                                            <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" />
+                                            <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" value="<?= set_value('email') ?>" />
+                                            <badge class="text-danger text-xs"><?= form_error('email') ?></badge>
+
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
-                                            <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" />
+                                            <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" value="<?= set_value('password') ?>" />
+                                            <badge class="text-danger text-xs"><?= form_error('password') ?></badge>
+
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">
@@ -133,6 +141,7 @@
         </div>
     </footer>
     <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!--   Core JS Files   -->
     <script src="<?= base_url('assets/') ?>assets/js/core/popper.min.js"></script>
     <script src="<?= base_url('assets/') ?>assets/js/core/bootstrap.min.js"></script>
