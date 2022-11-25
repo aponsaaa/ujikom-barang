@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Nov 2022 pada 17.52
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.1.12
+-- Waktu pembuatan: 25 Nov 2022 pada 13.29
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `product`
+--
+
+CREATE TABLE `product` (
+  `id` varchar(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `harga` int(255) NOT NULL,
+  `gambar` text NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `product`
+--
+
+INSERT INTO `product` (`id`, `nama`, `harga`, `gambar`, `created_at`) VALUES
+('a5c15032-3ed2-4e5b-b8c5-e13d867ecef1', '323232323', 232323232, 'd6ab3202250fe9e276c71e0e4c0f8fa4.jpeg', '2022-11-25 18:44:51'),
+('e0c838a1-5146-4675-88b2-0974027a30c8', 'Adasdasdasd', 32232322, '1145263a5ac37c10128843fb11f5f5e4.jpeg', '2022-11-25 18:43:48');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `users`
 --
 
@@ -33,7 +55,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `users`
@@ -52,6 +74,12 @@ INSERT INTO `users` (`id`, `nama`, `email`, `password`, `created_at`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `users`
